@@ -1,0 +1,3 @@
+Guard,5,5,Welcome traveler! This is the Town Square.
+Merchant,2,6,Looking for something special? I have rare goods!
+Old Man,7,2,Beware of the dangers that lurk in the cave.

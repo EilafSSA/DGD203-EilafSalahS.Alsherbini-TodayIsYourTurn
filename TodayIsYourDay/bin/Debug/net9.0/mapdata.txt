@@ -1,0 +1,4 @@
+Town Square,The bustling center of town.,5,5,accessible,Welcome to the town square!
+Mountain,Steep and impassable.,3,3,inaccessible,You cannot climb the mountain.
+Forest,Dark and mysterious woods.,2,6,accessible,You hear rustling in the trees...
+Cave,A dark and eerie cave.,7,2,accessible,You feel a cold breeze from inside.
