@@ -14,12 +14,18 @@ namespace GameProject
         |// |_   _/__\| _\ /  \\ `v' / | |/' _/ \ `v' //__\| || | _ \ |_   _| || | _ \  \| | |// 
               | || \/ | v | /\ |`. .'  | |`._`.  `. .'| \/ | \/ | v /   | | | \/ | v / | ' |     
               |_| \__/|__/|_||_| !_!   |_||___/   !_!  \__/ \__/|_|_\   |_|  \__/|_|_\_|\__|     
+                  
                   ");
 
-                Console.WriteLine("\n        1. New Game");
-                Console.WriteLine("        2. Load Save");
-                Console.WriteLine("        3. Credits!");
-                Console.WriteLine("        0. Exit");
+                Console.WriteLine(@"       
+                
+                1. New Game
+                
+                2. Load Save
+                
+                3. Credits!
+                
+                0. Exit");
 
                 string picked = Console.ReadLine();
                 switch (picked)
@@ -45,8 +51,10 @@ namespace GameProject
         private static void ShowCredits()
         {
             Console.Clear();
-            Console.WriteLine("Credits: Developed by Eilaf Salah S. Alsherbini");
-            Console.WriteLine("ASCII ART from https://patorjk.com/software/taag/");
+            Console.WriteLine(@"
+            Credits: Developed by Eilaf Salah S. Alsherbini
+            ");
+            Console.WriteLine("ASCII TEXT from https://patorjk.com/software/taag/");
         }
     }
 }
