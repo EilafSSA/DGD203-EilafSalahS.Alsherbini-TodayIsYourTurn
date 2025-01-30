@@ -2,23 +2,44 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace GameProject
+namespace TodayIsYourDay
 {
     public static class Map
     {
         public static List<Location> LoadMap(string filePath)
+{
+    List<Location> map = new List<Location>();
+
+    foreach (string line in File.ReadLines(filePath))
+    {
+        string[] parts = line.Split(',');
+
+        if (parts.Length >= 5)
         {
-            List<Location> map = new List<Location>();
-            foreach (string line in File.ReadLines(filePath))
+            string name = parts[0].Trim();
+            string description = parts[1].Trim();
+            int x, y;
+
+            // ✅ Properly parse X & Y (including negative numbers)
+            if (!int.TryParse(parts[2], out x) || !int.TryParse(parts[3], out y))
             {
-                string[] parts = line.Split(',');
-                if (parts.Length >= 5)
-                {
-                    map.Add(new Location(parts[0], parts[1], int.Parse(parts[2]), int.Parse(parts[3]), parts[4] == "accessible", parts.Length == 6 ? parts[5] : ""));
-                }
+                Console.WriteLine($"Error: Invalid coordinates in map data -> {line}");
+                continue; // Skips the broken line instead of crashing
             }
-            return map;
+
+            bool accessible = parts[4].Trim().ToLower() == "accessible";
+            string dialogue = parts.Length >= 6 ? parts[5].Trim() : "";
+
+            map.Add(new Location(name, description, x, y, accessible, dialogue));
         }
+        else
+        {
+            Console.WriteLine($"Error: Malformed entry in map data -> {line}");
+        }
+    }
+    return map;
+}
+
 
         public static Dictionary<(int, int), NPC> LoadNPCs(string filePath)
         {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace GameProject
+namespace TodayIsYourDay
 {
     public static class Game
     {
@@ -45,37 +45,52 @@ namespace GameProject
 
                 switch (input)
                 {
-                    case "w": Move(0, -1); break;
-                    case "s": Move(0, 1); break;
-                    case "a": Move(-1, 0); break;
-                    case "d": Move(1, 0); break;
+                    case "w":
+                        Move(0, 1);
+                        break;
+                        
+                    case "s":
+                        Move(0, -1); 
+                        break;
+
+                    case "a":
+                        Move(-1, 0); 
+                        break;
+
+                    case "d":
+                        Move(1, 0); 
+                        break;
                     default: Console.WriteLine("Invalid command! Use W/A/S/D, 'describe', 'talk', 'save', or 'exit'."); break;
                 }
             }
         }
 
+        private static HashSet<(int, int)> VisitedLocations = new HashSet<(int, int)>();
         private static void Move(int dx, int dy)
-        {
-            int newX = playerPosition.X + dx;
-            int newY = playerPosition.Y + dy;
-
-            Location location = map.Find(l => l.X == newX && l.Y == newY);
-
-            if (location == null)
             {
-                Console.WriteLine("You cannot move there. It's empty space.");
-            }
-            else if (!location.Accessible)
-            {
-                Console.WriteLine($"You hit a wall: {location.Name}. {location.Dialogue}");
-            }
-            else
-            {
-                playerPosition = (newX, newY);
-                Console.WriteLine($"You moved to {location.Name}. {location.Dialogue}");
-            }
-        }
+                int newX = playerPosition.X + dx;
+                int newY = playerPosition.Y + dy;
 
+                // Find the new location based on updated coordinates
+                Location location = map.Find(l => l.X == newX && l.Y == newY);
+
+                if (location == null)
+                {
+                    // ✅ If no location exists, assume it's an open space and move freely
+                    playerPosition = (newX, newY);
+                    Console.WriteLine($"You moved to ({newX}, {newY}).");
+                }
+                else if (!location.Accessible) // 🚫 Prevent movement into inaccessible areas
+                {
+                    Console.WriteLine($"You hit a wall: {location.Name}. {location.Dialogue}");
+                }
+                else
+                {
+                    // ✅ Move into an accessible named location
+                    playerPosition = (newX, newY);
+                    Console.WriteLine($"You moved to {location.Name}. {location.Dialogue}");
+                }
+            }
         private static void DescribeLocation()
         {
             Location location = map.Find(l => l.X == playerPosition.X && l.Y == playerPosition.Y);

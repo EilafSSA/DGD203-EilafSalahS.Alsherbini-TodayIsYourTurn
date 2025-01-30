@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace GameProject
+namespace TodayIsYourDay
 {
     public static class SaveSystem
     {
@@ -20,7 +20,7 @@ namespace GameProject
                 string[] lines = File.ReadAllLines(saveFilePath);
                 return (int.Parse(lines[0]), int.Parse(lines[1]));
             }
-            return (0, 0);
+            return (0,0);
         }
     }
 }

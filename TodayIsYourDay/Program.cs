@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameProject
+namespace TodayIsYourDay
 {
     class Program
     {

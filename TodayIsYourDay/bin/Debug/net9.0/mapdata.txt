@@ -1,4 +1,14 @@
 Town Square,The bustling center of town.,5,5,accessible,Welcome to the town square!
-Mountain,Steep and impassable.,3,3,inaccessible,You cannot climb the mountain.
-Forest,Dark and mysterious woods.,2,6,accessible,You hear rustling in the trees...
-Cave,A dark and eerie cave.,7,2,accessible,You feel a cold breeze from inside.
+Forest,A dense and mysterious woodland.,2,6,accessible,You hear rustling in the trees...
+Cave,A dark and eerie cave entrance.,7,2,accessible,A chill runs down your spine...
+
+Back of a long heavy door, Thats the back of your house.,-1,0,inaccessible,You just left the house so... You should probably continue your day.
+Wall, ,1,0,inaccessible,
+Wall, ,2,0,inaccessible,
+Wall, ,3,0,inaccessible,
+Wall, ,4,1,inaccessible,
+
+Empty,An old and barely mossy stone wall resides to your side. It's mainly made from the geological formations around you.,1,1,accessible, 
+Empty,an old stone wall That's not fully contructed- there are rusted wet wooden polls holding the pieces. ,2,1,accessible, drip... drip... drip... It's mainly made from the geological formations around you 
+Empty, ,2,1,accessible, 
+Empty, ,3,1,accessible,

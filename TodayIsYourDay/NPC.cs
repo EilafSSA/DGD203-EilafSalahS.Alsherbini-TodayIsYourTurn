@@ -1,4 +1,4 @@
-namespace GameProject
+namespace TodayIsYourDay
 {
     public class NPC
     {

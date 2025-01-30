@@ -1,6 +1,6 @@
 using System;
 
-namespace GameProject
+namespace TodayIsYourDay
 {
     public static class Menu
     {
@@ -25,7 +25,7 @@ namespace GameProject
                 
                 3. Credits!
                 
-                0. Exit");
+                0. No it isn't (Exit)");
 
                 string picked = Console.ReadLine();
                 switch (picked)
@@ -55,6 +55,7 @@ namespace GameProject
             Credits: Developed by Eilaf Salah S. Alsherbini
             ");
             Console.WriteLine("ASCII TEXT from https://patorjk.com/software/taag/");
+            Starting_Menu();
         }
     }
 }
